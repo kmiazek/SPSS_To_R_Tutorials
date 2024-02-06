@@ -1,0 +1,137 @@
+---
+title: "Tutorial R- data types"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+# HI :)
+Today I will tell you about data types in R. I don't know how much you learned so far, so if all of this is boring we will not waste time in person!:))
+
+
+Your first hello world!
+```{r}
+print("Hello world!")
+```
+ 
+ You are a programmer now!:)
+ 
+# Data types in R vs SPSS
+ 
+ In SPSS, you (probably) mostly used: 
+ 
++ Numeric 
++ Comma / dot 
++ String
+ 
+# Numeric and comma variables
+
+```{r}
+comma <- 1.2
+class(comma) #function class() checks the class of the object
+typeof(comma)
+
+numeric <- 135
+class(numeric)
+typeof(numeric)
+```
+So usually R will see both as numeric and will probably assume it might have a decimal point. There is a specific integer type, to store numbers without decimal place, but for now it is not important. 
+
+## Strings
+ or in polish - *stringi* :) 
+
+```{r}
+string <- "Hello world!"
+string2 <- "123" #If you put anything in quotation marks, it will be a string, not a number
+string3 <- '1.234' #The same if you put it in single quotation marks
+class(string)
+class(string2)
+class(string3)
+```
+
+As you can see, it does not matter if you use "" or ' ' . 
+**Untill it does!**
+
+
+```{r error = TRUE}
+error <- "he said "stop!", everyone freezed"
+```
+As you can see, if your sentence has "" inside, it destroys your string and causes an error. 
+
+```{r}
+sentence <- "he said 'stop!', everyone freezed"
+print(sentence)
+```
+
+So you need to use the other quotation mark outside, which is not used inside the sentence.
+
+You can change the types. Remember our strings? 
+```{r}
+print(string2)
+class(string2)
+
+string2 <- as.numeric(string2)
+print(string2)
+class(string2)
+
+print(string3)
+class(string3)
+
+string3 <- as.numeric(string3)
+print(string3)
+class(string3)
+
+```
+They are numbers now! **You are both a programmer and an alchemist now!**
+
+There are also logical valriables.
+*New data type unlocked*
+
+```{r}
+log <- TRUE
+class(log)
+```
+Must be in caps lock tho. 
+
+```{r error = TRUE}
+log2 <- true
+```
+
+As you can see, R is case-sensitive. Which means that Variable and variable are different objects, the same goes for TRUE and true. SPSS was not case-sensitive, so Variable, variable, and VARIABLE are the same object.
+
+However, R is not indent-sensitive. SPSS is not either, but some languages (e.g. Python) are. In other words, R does not care about white space in your code such as spaces and tabs. *Others reading your code might!*
+
+```{r}
+        print(
+          
+"I dont care!!!"
+        )
+
+  print(
+              "I love it!!!"
+   )
+```
+
+as a *fun fact* - R is indexing from 1. This might seem obvious to you, but most programming languages index from 0, not 1. 
+
+```{r}
+#R code
+my_vector <- c("apple", "banana", "cherry")
+print(my_vector[1]) 
+print(my_vector[2])  
+
+```
+
+In python, if you point to 1, it not an apple!
+
+```{python}
+
+#Below code is written in python!
+
+my_list = ["apple", "banana", "cherry"]
+print(my_list[1])  #It would be a banana!
+print(my_list[0])  #Apple is 0!
+
+```
+

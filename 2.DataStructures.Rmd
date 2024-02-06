@@ -1,0 +1,54 @@
+---
+title: "2. Data - cd"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+So now you know some basic data types in R. This lesson will cover tables, data frames and some basic operations.
+
+So usually you do not have just one variable, rather a full dataset with multiple variables and data types. 
+
+In SPSS you just had your dataset in one spreadsheet. Here, you will be able to have
+```{r}
+
+
+```
+
+Importantly, if you make a copy of an object by assigning it to another object, they are seperate entities.
+
+```{r}
+
+original_vector <- c(1, 2, 3)
+
+copied_vector <- original_vector
+
+copied_vector <- c(copied_vector, 4)
+
+print(paste("Original Vector:", toString(original_vector)))
+print(paste("Copied Vector (modified):", toString(copied_vector)))
+
+```
+
+As you can see, the modification of our original vector did not influence the copied vector. **This is handy, because if you make a copy of your data set, you an perform operations on a copy, leaving the raw data untouched.** This could not be as straightforward in every language, for example in Python. 
+
+```{python}
+
+# Code written in python
+
+original_list = [1, 2, 3]
+
+copy_list = original_list
+
+copy_list.append(4)
+
+print("Original List:", original_list)
+print("Copy List (modified):", copy_list)
+
+```
+
+Here as you can see operation on one variable changed them both. Fortunately, it is not our problem for now!
+
+
