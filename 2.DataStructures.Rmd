@@ -7,9 +7,59 @@ output:
   pdf_document: default
 ---
 
-So now you know some basic data types in R. This lesson will cover tables, data frames and some basic operations.
+So now you know some basic data types in R. This lesson will cover fuctions, data frames and some basic operations.
 
-So usually you do not have just one variable, rather a full dataset with multiple variables and data types. 
+Last time, I told you about different objects and how variables can be stored.
+Usually you do not have just one variable, rather a full dataset with multiple variables and data types. 
+
+```{r}
+
+```
+
+As you can see above, we have an object that has few numbers inside. Here we would call it a vector. We can have numeric vectors (containing only numbers) or character vectors (containing only stings). Vectors do not mix, but lists can. How multiple objects are stored is quite complex and names differ across programming languages, so we will not go into details for now. Usually, as you download you data from Qualtrics and you fetch them into R, you will have them in a table/data frame. 
+
+In R besideds objects, that you know already, we have also functions. You can think how in SPSS you had RECODE, FILTER, ANOVA ect. So a function is a behavior, that you want the program to do.
+
+Many functions are already available to you in base R or in libraries. 
+Some built-in functions:
+
+```{r}
+a <- c(2, 4, 8, 16)
+
+mean(a) #function mean() gives us mean (DUH) of specified object
+sd(a) #function for standard deviation
+sum(a) #function for sum
+```
+
+You can define your own functions too! Let's define a function that will encurage you to keep learning R.
+
+```{r}
+encourage <- function(name = "friend") { #defining the function
+  messages <- c(
+    "Keep going, you're doing great!",
+    "You're making fantastic progress!",
+    "Every step forward is a step towards mastering R!",
+    "Remember, every expert was once a beginner.",
+    "Your hard work is really paying off!",
+    "Don't worry about the bumps along the way, you're on the right path!",
+    "Learning is a journey, and you're moving forward beautifully!"
+  )
+  message <- sample(messages, 1)
+  cat(paste(name, ",", message))
+}
+
+
+
+encourage("Kasia") #calling the funtion
+```
+
+
+
+```{r}
+
+```
+
+
 
 In SPSS you just had your dataset in one spreadsheet. Here, you will be able to have
 ```{r}
@@ -50,5 +100,49 @@ print("Copy List (modified):", copy_list)
 ```
 
 Here as you can see operation on one variable changed them both. Fortunately, it is not our problem for now!
+
+So you can get you raw data 
+```{r}
+data <- read.csv(file = 'methodology_snipplet.csv', sep = ';', dec = ',')
+
+clean_data 
+  
+```
+
+Let's take a look at basic data frame, that contains our alchemy students and hours they spend on learning R. In SPSS you could use FREQUENCIES to get basic information about your variable. You can achieve similar output with R functions. 
+
+```{r}
+library(dplyr)
+
+study_data <- data.frame(
+  Creature = c("Dragon", "Unicorn", "Mermaid", "Centaur", "Phoenix", "Goblin", "Elf"),
+  StudyHours = c(5, 12, 9, 3, 15, 1, 10) # Hours spent studying
+)
+
+head(study_data)
+print(study_data)
+
+```
+
+
+
+```{r}
+summary <- study_data %>%
+  summarise(
+    Count = n(), 
+    Minimum = min(StudyHours),
+    Maximum = max(StudyHours),
+    Mean = round(mean(StudyHours), 2), #here we are using 2 functions
+    SD = round(sd(StudyHours), 2), #one to calculate and one to round
+    Median = median(StudyHours)
+  )
+
+print(summary)
+```
+
+
+
+
+
 
 
