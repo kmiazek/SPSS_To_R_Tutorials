@@ -123,6 +123,17 @@ head(study_data)
 print(study_data)
 
 ```
+```{r}
+talent_show <- data.frame(
+  ID = c(1, 2, 3, 4),
+  Name = c("Larry the Llama", "Gary the Giraffe", "Betty the Beaver", "Zara the Zebra"),
+  Act = c("Stand-up Comedy", "Juggling", "Magic Tricks", "Singing"),
+  Score = c(8.5, 9.2, 8.7, 9.5),
+  FunFact = c("Afraid of microphones", "Can juggle 6 apples", "Can make a carrot disappear", "Sings opera in the shower")
+)
+
+summary(talent_show)
+```
 
 
 
